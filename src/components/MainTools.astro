@@ -1,0 +1,14 @@
+---
+import SectionCards from "./SectionCards.astro";
+import SummaryCard from "./SummaryCard.astro";
+import { getCollection } from "astro:content";
+const posts = await getCollection("toolsPj");
+posts.sort(
+  (a, b) =>
+    new Date(a.data.pubDate).valueOf() - new Date(b.data.pubDate).valueOf()
+);
+---
+
+<SectionCards>
+  {posts.map((post) => <SummaryCard {...post.data} slug={post.slug} />)}
+</SectionCards>

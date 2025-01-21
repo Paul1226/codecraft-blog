@@ -1,0 +1,6 @@
+---
+import SummaryCard from "./SummaryCard.astro";
+import { type CollectionEntry } from "astro:content";
+import FormatedDate from "./FormatedDate.astro";
+type Props = CollectionEntry<"blogs">["data"] & { slug: string };
+---

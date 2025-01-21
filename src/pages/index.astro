@@ -1,11 +1,27 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import MainTools from "@/components/MainTools.astro";
+import MainTutorials from "@/components/MainTutorials.astro";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Proyecto Blog | Paul Dev">
+  <header class="py-16 px-4 max-w-content-size mx-auto">
+    <h1 class="w-full text-center font-bold text-5xl">CodeCraft Blog</h1>
+    <p class="text-lg text-center mt-4">
+      Un espacio dedicado a explorar el desarrollo web moderno. Aquí encontrarás
+      tutoriales, guías prácticas y mejores prácticas sobre Astro, Markdown,
+      Tailwind CSS, TypeScript, y otras herramientas esenciales. Aprende a crear
+      sitios web rápidos y eficientes mientras descubres cómo integrar
+      tecnologías innovadoras en tus proyectos.
+    </p>
+  </header>
+  <main class="max-w-content-size mx-auto px-4">
+    <div>
+      <h3 class="text-xl font-semibold">Tutoriales y guías técnicas:</h3>
+      <!-- <MainContainer /> -->
+      <MainTutorials />
+      <h3 class="text-xl font-semibold">Herramientas y mejores prácticas:</h3>
+      <MainTools />
+    </div>
+  </main>
 </Layout>

@@ -1,0 +1,21 @@
+---
+import SummaryCard from "./SummaryCard.astro";
+import { getCollection } from "astro:content";
+const posts = await getCollection("blogs");
+posts.sort(
+  (a, b) =>
+    new Date(a.data.pubDate).valueOf() - new Date(b.data.pubDate).valueOf()
+);
+---
+
+<section>
+  <div class="w-full">
+    <section class="w-full">
+      <ul
+        class="grid gap-5 grid-cols-[repeat(auto-fill,minmax(320px,1fr))] py-5"
+      >
+        {posts.map((post) => <SummaryCard {...post.data} slug={post.slug} />)}
+      </ul>
+    </section>
+  </div>
+</section>

@@ -1,0 +1,68 @@
+---
+import FormatedDate from "@/components/FormatedDate.astro";
+
+interface Props {
+  title: string;
+  pubDate: Date;
+  heroImg: string;
+  tags: string[];
+  slugName: string;
+}
+const { title, heroImg, tags, slugName, pubDate } = Astro.props;
+---
+
+<div class="w-full max-w-[700px] mx-auto p-8 px-4 flex flex-col gap-8">
+  <header>
+    <a
+      href="/"
+      class="px-4 py-2 border border-solid border-extra-soft-white rounded-full transition-colors duration-300 hover:border-purple-400"
+      >Ir atrás</a
+    >
+  </header>
+
+  <section
+    class="border border-extra-soft-white rounded-xl p-4 relative"
+    transition:name=`container-${slugName}`
+  >
+    <figure
+      class="w-full aspect-[16/5] mx-auto rounded-lg overflow-hidden absolute top-0 left-0 -z-[1] animate-mask-image"
+      transition:name=`mask-image-${slugName}`
+    >
+      <img
+        src={heroImg}
+        alt=`Imagen de ${title}`
+        class="w-full object-cover h-full rounded-lg"
+        transition:name=`image-${slugName}`
+      />
+    </figure>
+    <div class="mt-60 flex flex-col prose prose-invert">
+      <h4 class="text-3xl font-semibold" transition:name=`title-${slugName}`>
+        {title}
+      </h4>
+      <div class="flex justify-between items-center">
+        <ul class="flex gap-2 w-max" transition:name=`list-tags-${slugName}`>
+          {
+            tags.map((tag) => (
+              <li class="inline-block">
+                <span class="border-extra-soft-white self-start rounded-lg border px-2 py-1 text-zinc-400 capitalize">
+                  {tag}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+        <FormatedDate date={pubDate} slugName={slugName} />
+      </div>
+      <!-- <Content /> -->
+      <slot />
+    </div>
+  </section>
+</div>
+
+<style>
+  .animate-mask-image {
+    mask-image: linear-gradient(black 60%, transparent);
+    --webkit-mask-image: linear-gradient(black 60%, transparent);
+    transition: mask-image 0.5s;
+  }
+</style>

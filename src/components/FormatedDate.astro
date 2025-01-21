@@ -1,0 +1,22 @@
+---
+interface Props {
+  date: Date;
+  slugName: string;
+}
+const newDate = new Date(Astro.props.date);
+const { slugName } = Astro.props;
+---
+
+<time
+  class="mt-6 text-sm text-zinc-400"
+  datetime={newDate.toISOString()}
+  transition:name={slugName}
+>
+  {
+    newDate.toLocaleDateString("es-es", {
+      year: "numeric",
+      day: "2-digit",
+      month: "short",
+    })
+  }
+</time>
