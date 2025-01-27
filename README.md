@@ -14,6 +14,7 @@ Dado que estás trabajando con Astro y markdowns, podrías centrarte en crear co
 - Uso de Tailwind CSS en proyectos modernos.
 - Consejos para optimizar el SEO en proyectos con Astro.
   🟢 Ventaja: Atraerás a desarrolladores o personas interesadas en aprender sobre tecnologías web modernas.
+  ya esta copilando.
 
 ## Tareas
 
